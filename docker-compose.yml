@@ -1,0 +1,53 @@
+version: '3'
+services:
+  moveinsync_mysql:
+    image: mysql:5
+    volumes:
+     - ./data/db:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: moveinsync
+      MYSQL_DATABASE: moveinsync
+      MYSQL_USER: root
+      MYSQL_PASSWORD: moveinsync
+
+  url_scraper:
+    image: moveinsync/url_scraper:latest
+    volumes:
+     - ./app:/var/www/html
+    links:
+    - moveinsync_mysql
+    ports:
+      - "8000:80"
+    tty: true
+    stdin_open: true
+    restart: always
+    environment:
+      APP_NAME: UrlScraper
+      APP_ENV: production
+      APP_KEY: base64:jNriaRQ38PTDhG6IwZ0Rar6Ix+itBH84EhZKMk2od78=
+      APP_URL: http://localhost
+      APP_TIMEZONE: UTC
+      DB_CONNECTION: mysql
+      DB_HOST: 172.18.0.2
+      DB_PORT: 3306
+      DB_DATABASE: moveinsync
+      DB_USERNAME: root
+      DB_PASSWORD: moveinsync
+      CACHE_DRIVER: file
+      QUEUE_CONNECTION: sync
+      RETRIES_THRESHOLD: 5
+   
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - moveinsync_mysql
+    ports:
+      - 8181:80
+    restart: always
+    environment:
+      PMA_HOST: 172.18.0.2
+      PMA_PORT: 3306
