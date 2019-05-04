@@ -14,9 +14,7 @@ services:
       MYSQL_PASSWORD: moveinsync
 
   url_scraper:
-    image: moveinsync/url_scraper:latest
-    volumes:
-     - ./app:/var/www/html
+    image: spandy/url_scraper:latest
     links:
     - moveinsync_mysql
     ports:
