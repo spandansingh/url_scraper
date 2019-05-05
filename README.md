@@ -1,12 +1,12 @@
 Url Scraper Microservice
 ===============
 
-It is a scalable microservice which scrape the urls and stored its response. We can setup it using the following methods-
+It is a scalable microservice which scrape the urls and stored its response. We can setup it using the following two methods.
 
-### First Method - Using docker-compose
+### First Method - Using Docker Compose
 
 The recommended way to install Url Scraper microservice is through
-[Docker-Compose](https://docs.docker.com/compose/).
+[Docker Compose](https://docs.docker.com/compose/).
 
 ```bash
 # Clone the Repository
@@ -17,7 +17,7 @@ git clone https://github.com/spandansingh/url_scraper.git
 ```bash
 docker-compose up --build -d
 ```
-Yay! Everything is now up and running. It will now create three services in separate docker containers - 
+Yay! Everything is now up and running. It will now build and run three services in separate docker containers - 
 
 * Microservice ( [Lumen Micro-Framework](https://lumen.laravel.com) - The stunningly fast micro-framework by Laravel )
     * worker to process the URLs 
@@ -62,10 +62,7 @@ docker-compose down
 ```
 
 
-## Second Method - Using Composer
-
-The another way to install Url Scraper microservice is through
-[Composer](http://getcomposer.org).
+## Second Method - Using [Composer](http://getcomposer.org)
 
 ```bash
 # Clone the Repository
