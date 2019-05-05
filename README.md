@@ -1,7 +1,7 @@
 URL Scraper Microservice
 ===============
 
-It is a scalable microservice which scrape the urls and stored its response. We can setup it using the following two methods.
+It is a scalable microservice which scrapes the urls and stores its response. We can setup it using the following two methods.
 
 ### First Method - Using [Docker Compose](https://docs.docker.com/compose/)
 
