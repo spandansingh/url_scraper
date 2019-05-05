@@ -93,9 +93,11 @@ Now, change the directory to /app and start the worker to process urls by runnin
 php artisan moveinsync:url_scraper
 ```
 
-Now open another terminal instance and run the following to get the report of failed urls using API ( http://localhost:8000/urls/failed )
+Now open another terminal instance and start the http server.
 
 ```bash
 # Start the HTTP Server
 php -S localhost:8000 -t public
 ```
+
+To get the report of failed urls use the api - http://localhost:8000/urls/failed 
