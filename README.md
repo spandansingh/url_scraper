@@ -31,9 +31,12 @@ which can be listed by the following command-
 docker-compose ps
 ```
 
-Docker compose creates a local network between these containers. If the worker failed to scrape any url it retries to scrape it. 
+Docker compose creates a local network between these containers. 
+
+If the worker failed to scrape any url it retries to scrape it. 
 The Threshold number of retries could be modified by changing the environment variable RETRIES_THRESHOLD inside the docker-compose.yml.
 Default number of retries is 3. In the docker-compose.yml, we can also modfiy other environment variables like database credentials.
+
 Docker Compose automatically pulls the [docker image](https://hub.docker.com/r/spandy/url_scraper). However, the docker image could also built locally using the Dockerfile inside the root folder. 
 Run the following command to build the docker image locally.
 
@@ -41,9 +44,12 @@ Run the following command to build the docker image locally.
 docker build -t spandy/url_scraper .
 ```
 
-Let's populate some urls in database now!! Please navigate to phpmyadmin which is running at http://localhost:8181. Create a database moveinsync and import the [sql file](https://raw.githubusercontent.com/spandansingh/url_scraper/master/moveinsync.sql) that is in the root folder of this repository.
+Let's populate some urls in database now!! Please navigate to phpmyadmin which is running at http://localhost:8181. 
+
+Create a database moveinsync and import the [sql file](https://raw.githubusercontent.com/spandansingh/url_scraper/master/moveinsync.sql) that is in the root folder of this repository.
  
 Note: Since worker is already running so you will be able to see the results inside the table.
+
 API to get the report for the failed urls - http://localhost:8000/urls/failed
 
 
@@ -82,10 +88,12 @@ composer install
 ```
 
 Now, set the MySQL database credentials in the app/.env file to connect with database.
+
 Please find the exported [sql file](https://raw.githubusercontent.com/spandansingh/url_scraper/master/moveinsync.sql) in the root folder.
 
 The Threshold number of retries could be modifiled by changing the environment variable RETRIES_THRESHOLD inside the /app/.env file
 Default number of retries is 3. 
+
 Now, change the directory to /app and start the worker to process urls by running the following command. 
 
 ```bash
