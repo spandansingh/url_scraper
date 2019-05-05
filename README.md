@@ -20,8 +20,8 @@ docker-compose up --build -d
 Yay! Everything is now up and running. It will now build and run three services in separate docker containers - 
 
 * Microservice ( [Lumen Micro-Framework](https://lumen.laravel.com) - The stunningly fast micro-framework by Laravel )
-    * worker to process the URLs 
-    * HTTP Server to expose the API to see the report of the failed urls
+    * [worker](https://github.com/spandansingh/url_scraper/blob/master/app/app/Console/Commands/UrlScraper.php) to process the URLs 
+    * HTTP Server to expose the [API](https://github.com/spandansingh/url_scraper/blob/master/app/app/Http/Controllers/UrlController.php) to see the report of the failed urls
 * Database Server (MySQL)
 * Database Client (PhpMyAdmin)
 
@@ -34,7 +34,7 @@ docker-compose ps
 Docker compose creates a local network between these containers. If the worker failed to scrape any url it retries to scrape it. 
 The Threshold number of retries could be modified by changing the environment variable RETRIES_THRESHOLD inside the docker-compose.yml.
 Default number of retries is 3. In the docker-compose.yml, we can also modfiy other environment variables like database credentials.
-Docker-Compose automatically pulls the [docker image](https://hub.docker.com/r/spandy/url_scraper). However, the docker image could also built locally using the Dockerfile inside the root folder. 
+Docker Compose automatically pulls the [docker image](https://hub.docker.com/r/spandy/url_scraper). However, the docker image could also built locally using the Dockerfile inside the root folder. 
 Run the following command to build the docker image locally.
 
 ```bash
