@@ -41,7 +41,7 @@ Run the following command to build the docker image locally.
 docker build -t spandy/url_scraper .
 ```
 
-Let's populate some urls in database now!! Please navigate to phpmyadmin which is running at http://localhost:8181. Create a database moveinsync and import the sql file that is in the root folder of this repository.
+Let's populate some urls in database now!! Please navigate to phpmyadmin which is running at http://localhost:8181. Create a database moveinsync and import the [sql file](https://raw.githubusercontent.com/spandansingh/url_scraper/master/moveinsync.sql) that is in the root folder of this repository.
  
 Note: Since worker is already running so you will be able to see the results inside the table.
 API to get the report for the failed urls - http://localhost:8000/urls/failed
@@ -82,7 +82,7 @@ composer install
 ```
 
 Now, set the MySQL database credentials in the app/.env file to connect with database.
-Please find the exported sql file in the root folder.
+Please find the exported [sql file](https://raw.githubusercontent.com/spandansingh/url_scraper/master/moveinsync.sql) in the root folder.
 
 The Threshold number of retries could be modifiled by changing the environment variable RETRIES_THRESHOLD inside the /app/.env file
 Default number of retries is 3. 
