@@ -1,11 +1,11 @@
-Url Scraper Microservice
+URL Scraper Microservice
 ===============
 
 It is a scalable microservice which scrape the urls and stored its response. We can setup it using the following two methods.
 
-### First Method - Using Docker Compose
+### First Method - Using [Docker Compose](https://docs.docker.com/compose/)
 
-The recommended way to install Url Scraper microservice is through
+The recommended way to install URL Scraper microservice is through
 [Docker Compose](https://docs.docker.com/compose/).
 
 ```bash
